@@ -1,0 +1,96 @@
+{% extends 'user/userdetails.html' %}
+{% block userblock %}
+{% load staticfiles %}
+<style>
+body{
+
+        }
+    #customers{
+       font-family:Abel;
+       border-collapse:collapse;
+       width:40%;
+       font-size:25px;
+       color:black;
+       background-color:pink;
+         padding: 14px;
+    margin-top: 80px;
+    margin-left: 435px;
+
+       }
+       #customers td, #customers th{
+       border:1px solid #ddd;
+       padding:8px;
+
+       }
+
+
+
+       #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: black  ;
+    color: white;
+
+}
+.imga{
+background: url("{% static 'admin.jpeg' %}");
+background-size:100% 100%;
+height:-webkit-fill-available;
+width:100%;
+position: absolute;
+}
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+
+
+</style>
+
+
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <div class="imga">
+    <table id="customers">
+        <tr>
+            <td>Name:</td>
+            <td>{{ object.firstname }}</td>
+        </tr>
+        <tr>
+            <td>Email Id:</td>
+            <td>{{ object.email }}</td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>{{ object.password }}</td>
+        </tr>
+        <tr>
+            <td>MobileNumber</td>
+            <td>{{ object.mobilenumber }}</td>
+        </tr>
+        <tr>
+
+            <td>Dob</td>
+            <td>{{ object.dob }}</td>
+        </tr>
+        <tr>
+            <td>Gender :</td>
+            <td>{{ object.gender }}</td>
+        </tr>
+        <tr>
+            <td>Address :</td>
+            <td>{{ object.address }}</td>
+        </tr>
+    </table>
+    </div>
+
+
+</form>
+
+</body>
+{% endblock %}

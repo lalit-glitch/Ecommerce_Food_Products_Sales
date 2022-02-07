@@ -1,0 +1,105 @@
+{% extends 'admin/designadmin.html' %}
+{% block adminblock %}
+{% load static %}
+<style>
+
+
+        .upload{
+        position: absolute;
+        top:10px;
+        margin-left:150px;
+        padding:30px;
+        width:900px;
+        height: 400px;
+        overflow:auto;
+}
+
+        .upload table{
+         width:60em;
+         text-align:center;
+         //border-collapse:collapse;
+         border-spacing:1px;
+         background:white;
+}
+
+        .upload table tr th{
+            color:white;
+}
+            .upload table tr th{
+            background:rgb(1, 176, 135);
+            padding:10px;
+}
+            .upload table tr td{
+            background-color:pink;
+             margin-left:center;
+            padding:10px;
+}
+            .upload table tr:hover td{
+            background:rgba(237, 236, 234);
+}
+            .buttonpost {
+            background-color: #ff1a3c;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+             text-align: center;
+             text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+             margin: 4px 2px;
+            cursor: pointer;
+            }
+
+</style>
+<body>
+<div class="upload">
+<form method="POST" enctype="multipart/form-data">
+
+    {%csrf_token%}
+    <table align="right" style="color:black">
+
+         <tr>
+            <td style="color:black;" ><b> Product Name</b></td>
+            <td>{{v.Productname}}</td>
+        </tr>
+
+         <tr>
+            <td style="color:black;" ><b> Product Id</b></td>
+            <td>{{v.Productid}}</td>
+        </tr>
+
+         <tr>
+            <td style="color:black;" ><b> Quality</b></td>
+            <td>{{v.Quality}}</td>
+        </tr>
+
+         <tr>
+            <td style="color:black;" ><b>uploadimage</b></td>
+            <td>{{v.uploadimage}}</td>
+        </tr>
+
+         <tr>
+            <td style="color:black;" ><b>gram</b></td>
+            <td>{{v.gram}}</td>
+        </tr>
+
+         <tr>
+            <td style="color:black;" ><b> Description</b></td>
+        <td>{{v.Description}}</td>
+        </tr>
+
+         <tr>
+            <td style="color:black;" ><b> AMOUNT</b></td>
+            <td>{{v.amount}}</td>
+        </tr>
+
+         <tr>
+            <td style="text-align:center;" colspan="2"><input type="submit" class="buttonpost" name="submit" value="Post the Food E-Shopping"></td>
+        </tr>
+
+
+
+</table>
+</form>
+</div>
+{% endblock %}

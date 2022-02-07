@@ -1,0 +1,89 @@
+{% extends 'user/userdetails.html' %}
+{% block userblock %}
+{% load static %}
+<style>
+body{
+
+}
+
+
+
+
+    .viewdetails{
+    position: absolute
+;
+    top:330px;
+    margin-left:10px;
+    padding:30px;
+    width:1200px;
+    height: 1200px;
+    overflow:auto;
+}
+
+.viewdetails table{
+    width:78em;
+    text-align:center;
+    //border-collapse:collapse;
+    border-spacing:1px;
+    background:#371C1C;
+}
+
+.viewdetails table tr th{
+    color:white;
+}
+.viewdetails table tr th{
+background:rgb	rgb(64, 255, 0);
+padding:30px;
+}
+.viewdetails table tr td{
+background-color:pink;
+padding:10px;
+}
+.viewdetails table tr:hover td{
+background:rgbargb(255, 255, 255);
+}
+
+
+    </style>
+
+<h1 style="text-align:center;">Add to Card</h1>
+<h3 style="text-align:center; color:white" >Your order will get back soon,Services will call you</h3>
+<h2 style="text-align:center;">Thanks for your Ordering</h2>
+<div class="viewdetails" >
+    <form method="POST">
+        {% csrf_token %}
+<table id="myTable" style="font-size:100%; color:red" align="right">
+     <tr>
+
+                <th>Username</th>
+                <th>Product Name</th>
+                <th>Quality</th>
+                <th>day</th>
+                <th>month</th>
+                <th>year</th>
+                <th>Total Amount</th>
+                <th>Food Order Tracking</th>
+
+            </tr>
+
+            {% for v in objects %}
+            <tr>
+                <td>{{v.userid.firstname}}</td>
+                <td>{{v.salesid.Productname}}</td>
+                <td>{{v.Quality}}</td>
+                <td>{{v.day}}</td>
+                <td>{{v.month}}</td>
+                <td>{{v.year}}</td>
+                <td>{{v.amount}}</td>
+                <td><a style="color:black;" href="{% url 'ordertacking' %}">Track Your Order</a></td>
+
+
+            </tr>
+
+            {% endfor %}
+        </table>
+    </form>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends 'user/userdetails.html' %}
+{% block userblock %}
+{% load staticfiles %}
+<style>
+
+
+         #feed1{
+       font-family:Abel;
+       border-collapse:collapse;
+           width: 50%;
+    float: right;
+    font-size: 20px;
+       font-size:20px;
+       margin-top: 8px;
+        width: 200px;
+    height:100%;
+    overflow:auto;
+       }
+       #feed1 td, #feed1 th{
+       border:1px solid #ddd;
+       padding:8px;
+       background-color:pink;
+
+       }
+
+       #feed1 th {
+        padding-top: -5px;
+        padding-bottom: 1px;
+        text-align: center;
+    background-color: #371C1C  ;
+    color: white;
+
+}
+
+.image1{
+          background: url("{% static 'reviews.png' %}");
+              background-size: 100% 100%;
+            width: 658px;
+    height: 275px;
+        margin-top: -834px;
+    float: left;
+}
+.imgs{
+background: url("{% static 'admin.jpeg' %}");
+background-size:cover;
+
+position:absoulte;
+    overflow:auto;
+
+   margin-left:center;
+    padding: 1px;
+    width: 70%;
+    height: 464px;
+
+
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+    width:600px;
+}
+    </style>
+<body>
+<form method="POST">
+<div class="imgs" style="overflow: scroll">
+    <table id="feed1" style="width:650px" >
+
+    <tr>
+        <th>User Name</th>
+        <th>Product Name</th>
+        <th>Ratings</th>
+        <th>Feedback</th>
+    </tr>
+    {% for o in objects %}
+    <tr>
+        <td>{{o.name}}</td>
+        <td>{{o.productname}}</td>
+        <td>{{o.ratings}}</td>
+        <td>{{o.feedback}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+</body>
+{% endblock %}
